@@ -36,8 +36,8 @@
 
     <div id="features">
         <div class="w-full flex justify-end items-start sm:flex-nowrap flex-wrap">
-            <img class="sm:w-[60%] w-[90%] ml-10 mr-auto" style="transform: perspective(70em) rotate3d(0, 1, 0, 25deg)" src="/assets/img/dashboard.png"/>
-            <div class="order-1 mr-5 text-center">
+            <img class="left sm:w-[60%] w-[90%] ml-10 sm:mr-auto" src="/assets/img/dashboard.png"/>
+            <div class="sm:order-1 mr-5 text-center">
                 <h1 class="text-4xl text-text-primary font-bold">All In-One Platform</h1>
                 <p class="text-md m-2 text-text-secondary font-bold">
                     Finned provides a powerful suite of tools to increase leads and conversions on your digital billboards. Manage your ads, ad tags, and billboards all from our dashboard.
@@ -48,21 +48,20 @@
         <div id="spacer" class="spacer h-[30%]"></div>
 
         <div class="w-full flex justify-end items-start sm:flex-nowrap flex-wrap">
-            <div class="mr-auto text-center">
+            <img class="right sm:order-1 sm:w-[60%] w-[90%] mr-10" src="/assets/img/ads.png"/>
+            <div class="sm:mr-auto text-center">
                 <h1 class="text-4xl text-text-primary font-bold">Smart</h1>
                 <p class="text-md text-text-secondary font-bold m-2">
                     Finned has an intuitive UI and simple commands, allowing you and your company to be as productive as possible, without worrying about the more difficult side of advertising. Our industry-leading AI software ranks and determines the advertisements to show on your billboards, thus reducing the need for expensive external analysts.
                 </p>
             </div>
-
-            <img class="order-1 sm:w-[60%] w-[90%] mr-10" style="transform: perspective(70em) rotate3d(0, 1, 0, -25deg)" src="/assets/img/ads.png"/>
         </div>
 
         <div class="spacer h-[30%]"></div>
 
         <div class="w-full flex justify-end items-start sm:flex-nowrap flex-wrap">
-            <img class="sm:w-[60%] w-[90%] ml-10 mr-auto" style="transform: perspective(70em) rotate3d(0, 1, 0, 25deg)" src="/assets/img/settings.png"/>
-            <div class="order-1 mr-5 text-center">
+            <img class="left sm:w-[60%] w-[90%] ml-10 sm:mr-auto" src="/assets/img/settings.png"/>
+            <div class="sm:order-1 mr-5 text-center">
                 <h1 class="text-4xl text-text-primary font-bold">Flexible</h1>
                 <p class="text-md m-2 text-text-secondary font-bold">
                     Finned puts you in control of your ads, taking care of the more redundant tasks itself. With its easy-to-use interface, Finned gives you control of ads uploads, edits, and removals. It is for this reason, also, that Finned integrates with the major technologies for billboard display, including URL, direct TCP, and Screen Sharing.
@@ -73,14 +72,14 @@
         <div class="spacer h-[30%]"></div>
 
         <div class="w-full flex justify-end items-start sm:flex-nowrap flex-wrap">
-            <div class="mr-auto text-center">
+            <img class="right sm:order-1 sm:w-[60%] w-[90%] mr-10" src="/assets/img/support.png"/>
+
+            <div class="sm:mr-auto text-center">
                 <h1 class="text-4xl text-text-primary font-bold">Support</h1>
                 <p class="text-md m-2 text-text-secondary font-bold">
                     Finned runs on most any system, from a standard desktop computer to an old laptop. It uses open-source libraries to ensure support is as broad as possible. You can expect premium support from our service reps, and on our forum.
                 </p>
             </div>
-
-            <img class="order-1 sm:w-[60%] w-[90%] mr-10" style="transform: perspective(70em) rotate3d(0, 1, 0, -25deg)" src="/assets/img/support.png"/>
         </div>
     </div>
 
@@ -120,6 +119,9 @@
                     <h1 class="text-3xl self-center font-bold text-[rgba(56,139,253,0.75)]">$29.99</h1>
                     <span class="text-md self-center">Billed monthly</span>
                 </div>
+
+                <br class="sm:hidden">
+
                 <div class="flex flex-col grow items-start sm:border-b-0 border-b border-b-text-secondary">
                     <h1 class="font-bold text-text-primary self-center">Pro</h1>
                     <div class="text-left ml-[20%]">
@@ -149,6 +151,9 @@
                     <h1 class="text-3xl font-bold text-[rgba(56,139,253,0.75)] self-center">$129.99</h1>
                     <span class="text-md self-center">Billed monthly</span>
                 </div>
+
+                <br class="sm:hidden">
+                
                 <div class="flex flex-col grow items-start">
                     <h1 class="font-bold text-text-primary self-center">Enterprise</h1>
                     <div class="text-left ml-[20%]">

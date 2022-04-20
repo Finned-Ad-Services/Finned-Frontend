@@ -1,26 +1,31 @@
-<link href="/assets/stylesheet.css" rel="stylesheet"/>
-<section class="flex justify-center items-center h-screen bg-main-bg-color">
-    <form class="max-w-md w-full bg-secondary-bg-color rounded p-6 space-y-4" action="/login/password" method="post">
-        <% if (locals.messages) { %>
-            
-        <% } %>
-        <div class="mb-4">
-            <p class="text-text-secondary">Sign In</p>
-            <h2 class="text-xl font-bold text-text-primary">Welcome Back!</h2>
-        </div>
-        <div>
-            <input autofocus name="username" id="username" class="w-full p-4 text-sm bg-bg-hover-color focus:outline-none border border-text-secondary rounded-2x1 text-text-secondary" type="text" placeholder="Email">
-        </div>
-        <div>
-            <input type="password" name="password" id="current-password" class="w-full p-4 text-sm bg-bg-hover-color focus:outline-none border border-text-secondary rounded-2x1 text-text-secondary" type="text" placeholder="Password">
-        </div>
-        <div>
-            <button class="w-full py-4 bg-blue-accent-emphasis rounded text-sm font-bold text-text-primary transition duration-200">Sign In</button>
-        </div>
-        <div class="flex items-center justify-between">
-            <div>
-                <a class="text-sm text-blue-accent-emphasis hover:underline" href="/signup">Not a Member? Sign Up!</a>
+<head> 
+    <link href="/assets/stylesheet.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <section class="flex justify-center items-center h-screen bg-main-bg-color">
+        <form class="max-w-md w-full bg-secondary-bg-color rounded p-6 space-y-4" action="/login/password" method="post">
+            <% if (locals.messages) { %>
+                
+            <% } %>
+            <div class="mb-4">
+                <p class="text-text-secondary">Sign In</p>
+                <h2 class="text-xl font-bold text-text-primary">Welcome Back!</h2>
             </div>
-        </div>
-    </form>
-</section>
+            <div>
+                <input autofocus name="username" id="username" class="w-full p-4 text-sm bg-bg-hover-color focus:outline-none border border-text-secondary rounded-2x1 text-text-secondary" type="text" placeholder="Email">
+            </div>
+            <div>
+                <input type="password" name="password" id="current-password" class="w-full p-4 text-sm bg-bg-hover-color focus:outline-none border border-text-secondary rounded-2x1 text-text-secondary" type="text" placeholder="Password">
+            </div>
+            <div>
+                <button class="w-full py-4 bg-blue-accent-emphasis rounded text-sm font-bold text-text-primary transition duration-200">Sign In</button>
+            </div>
+            <div class="flex items-center justify-between">
+                <div>
+                    <a class="text-sm text-blue-accent-emphasis hover:underline" href="/signup">Not a Member? Sign Up!</a>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
