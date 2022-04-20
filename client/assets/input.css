@@ -1,0 +1,36 @@
+:root {
+    --main-bg-color: #18191A;
+    --secondary-bg-color: #242526;
+    --bg-hover-color: #3A3B3C;
+    --text-primary: #E4E6EB;
+    --text-secondary: #B0B3B8;
+    --blue-accent-emphasis: #1f6feb;
+    --blue-accent-muted: rgba(56,139,253,0.4);
+    --blue-accent-subtle: rgba(56,139,253,0.15);
+}
+
+.break {
+    width:100%;
+    border-bottom-width:2px;
+    border-color: var(--bg-hover-color);
+}
+
+table, table tr, table th, table td {
+    border: 1px solid var(--text-secondary);
+}
+
+table tr th, table tr td {
+    padding: 10px;
+}
+
+#adTable thead, #adTable th {
+    background-color: var(--bg-hover-color);
+}
+
+table tr:not(table tr:last-child) {
+    border-bottom: 1px solid var(--text-secondary) !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
