@@ -1,0 +1,86 @@
+<head>
+    <link href="/global_assets/stylesheet.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Finned | Signup</title>
+
+    <link rel="icon" href="/default/assets/img/favicon.png">
+
+    <meta property="og:site_name" content="Finned Ad Services">
+    <meta property="og:image" content="/default/assets/img/logo.png">
+    <meta property="og:title" content="Finned | Digital Signage, Smarter">
+    
+    <meta name="description" content="Signup for Finned Today!" />
+    <meta property="og:description" content="Signup for Finned Today!" />
+
+    <link rel="icon" href="/default/assets/img/favicon.png">
+
+    <script src="/global_assets/vendor/zxcvbn/zxcvbn.js"></script>
+    <script defer>
+        window.onload = function() {
+            document.querySelector('#new-password').addEventListener('input', () => {
+                var value = document.querySelector('#new-password').value;
+                var strength = zxcvbn(value)
+
+                if (strength.score <= 2) {
+                    var toShow = "";
+                    if (strength.feedback.warning) {
+                        toShow = strength.feedback.warning;
+                    } else if (strength.feedback.suggestions) {
+                        toShow = strength.feedback.suggestions.join('. ');
+                    }
+                    
+                    document.querySelector('#strength').innerText = toShow;
+                } else {
+                    document.querySelector('#strength').innerText = "";
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <% if (messages.length) { %>
+        <div id="toast-bottom-right" class="fixed flex items-center w-full max-w-xs p-4 space-x-4 text-bg-hover-color rounded-lg shadow right-5 bottom-5 bg-red-400" role="alert">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-text-primary bg-red-500 rounded-lg">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="text-red-600 text-sm font-normal"><%= messages %></div>
+        </div>
+    <% } %>
+    
+    <section class="flex justify-center items-center h-screen bg-main-bg-color">
+        <form class="max-w-md w-full bg-secondary-bg-color rounded p-6 space-y-4" action="/signup" method="post">
+            <div class="mb-4">
+                <p class="text-text-secondary">Sign Up</p>
+                <h2 class="text-xl font-bold text-text-primary">Boost your Business!</h2>
+            </div>
+            <div>
+                <input autofocus name="username" id="username" class="w-full p-4 text-sm bg-bg-hover-color focus:outline-none border border-text-secondary rounded-2x1 text-text-secondary" type="email" placeholder="Email">
+            </div>
+            <div>
+                <input type="password" name="password" id="new-password" class="w-full p-4 text-sm bg-bg-hover-color focus:outline-none border border-text-secondary rounded-2x1 text-text-secondary" type="text" placeholder="Password">
+                <p id="strength" class="text-center text-sm italic text-red-600"></p>
+            </div>
+            
+            <br>
+
+            <div class="flex items-center mb-4">
+                <input name="fpeAdvertiser" id="advertiser-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-accent-emphasis bg-bg-hover-color rounded border-text-secondary">
+                <label for="advertiser-checkbox" class="ml-4 text-sm font-medium text-text-secondary">I'm interested in becoming an FPE advertiser.</label>
+            </div>
+            <div class="flex items-center">
+                <input name="fpeUser" id="user-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-accent-emphasis bg-bg-hover-color rounded border-text-secondary">
+                <label for="user-checkbox" class="ml-4 text-sm font-medium text-text-secondary">I am signing up to be an FPE User only.</label>
+            </div>
+
+            <div>
+                <button class="w-full py-4 bg-blue-accent-emphasis rounded text-sm font-bold text-text-primary transition duration-200">Next →</button>
+            </div>
+
+            <div class="flex items-center justify-between">
+                <div>
+                    <a class="text-sm text-blue-accent-emphasis hover:underline" href="/login">Already a Member? Sign In!</a>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>

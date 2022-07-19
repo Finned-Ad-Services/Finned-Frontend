@@ -1,0 +1,119 @@
+<head>
+    <link href="/global_assets/stylesheet.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Finned | FPE Onboarding</title>
+    <link rel="icon" href="/default/assets/img/favicon.png">
+
+    <meta property="og:site_name" content="Finned Ad Services">
+    <meta property="og:image" content="/default/assets/img/logo.png">
+    <meta property="og:title" content="Finned | Digital Signage, Smarter">
+
+    <script>
+        tagList = [];
+
+        function newTag(elem) {
+            elem.parentNode.innerHTML += `
+            <input form="tagForm" id="tagInput" autofocus class="bg-transparent text-text-secondary outline-none border-none" placeholder="Enter..."/><br>
+            `;
+        }
+        function newTagSubmit(elem) {
+            tagList.push(elem.querySelector('#tagInput').value);
+
+            elem.innerHTML += `
+            <button type="button" onclick="deleteTag(this)" class="inline rounded-[1rem] bg-blue-accent-subtle text-blue-accent-emphasis p-1">
+                ${elem.querySelector('#tagInput').value}
+                <svg class="inline" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M1.293 1.293a1 1 0 0 1 1.414 0L8 6.586l5.293-5.293a1 1 0 1 1 1.414 1.414L9.414 8l5.293 5.293a1 1 0 0 1-1.414 1.414L8 9.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L6.586 8 1.293 2.707a1 1 0 0 1 0-1.414z"/>
+                </svg>
+            </button>
+            `;
+            elem.querySelector('#tagInput').focus();
+        }
+        function deleteTag(elem) {
+            tagList = tagList.filter((value, index, arr) => { return value !== elem.innerText.trim(); });
+
+            elem.remove();
+        }
+        function fillTags(elem) {
+            if (tagList.length) {
+                elem.querySelector('#interestsList').value = tagList;
+            } else {
+                document.body.innerHTML += `
+                <div id="toast-bottom-right" class="fixed flex items-center w-full max-w-xs p-4 space-x-4 text-bg-hover-color rounded-lg shadow right-5 bottom-5 bg-red-400" role="alert">
+                    <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-text-primary bg-red-500 rounded-lg">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <div class="text-red-600 text-sm font-normal">You must put at least one interest!</div>
+                </div>
+                `;
+
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+    <form id="tagForm" onsubmit="newTagSubmit(document.querySelector('#interests')); return false;"></form>
+
+    <section class="flex flex-col space-y-2 justify-center items-center h-screen bg-main-bg-color">
+        <form id="mainForm" onsubmit="fillTags(this)" autocomplete="off" class="max-w-md w-full bg-secondary-bg-color rounded p-6 space-y-4" action="/signup/fpeInfo" method="post">
+            <input id="interestsList" name="interests" type="hidden" class="hidden" value=""/>
+            
+            <div class="mb-4 text-left">
+                <p class="text-text-secondary">User Questionnaire</p>
+                <h2 class="text-xl font-bold text-text-primary">Tell us a bit about yourself...</h2>
+            </div>
+
+            <div class="relative z-0 mb-6 w-full group">
+                <input form="mainForm" type="text" name="name" id="name" class="block py-2.5 px-0 w-full text-sm text-blue-accent-emphasis bg-transparent border-0 border-b-2 border-blue-accent-emphasis appearance-none  focus:outline-none focus:ring-0 focus:border-blue-accent-emphasis peer" placeholder=" " required />
+                <label for="name" class="absolute text-sm text-blue-accent-emphasis duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-accent-emphasis peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Full Name</label>
+            </div>
+
+            <div class="relative z-0 mb-6 w-full group">
+                <input form="mainForm" type="text" name="email" id="email" class="block py-2.5 px-0 w-full text-sm text-blue-accent-emphasis bg-transparent border-0 border-b-2 border-blue-accent-emphasis appearance-none  focus:outline-none focus:ring-0 focus:border-blue-accent-emphasis peer" placeholder=" " required />
+                <label for="email" class="absolute text-sm text-blue-accent-emphasis duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-accent-emphasis peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Preferred Email</label>
+            </div>
+
+            <div class="relative z-0 mb-6 w-full group">
+                <input form="mainForm" type="number" name="age" id="age" class="block py-2.5 px-0 w-full text-sm text-blue-accent-emphasis bg-transparent border-0 border-b-2 border-blue-accent-emphasis appearance-none  focus:outline-none focus:ring-0 focus:border-blue-accent-emphasis peer" placeholder=" " required />
+                <label for="age" class="absolute text-sm text-blue-accent-emphasis duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-accent-emphasis peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Age</label>
+            </div>
+
+            <div>
+                <!--<label class="text-md font-semibold text-blue-accent-muted" for="race">Select your race:</label><br>-->
+                <select form="mainForm" class="bg-secondary-bg-color border-2 border-blue-accent-emphasis text-blue-accent-muted w-full focus:ring-2 focus:ring-blue-accent-emphasis" required name="race" id="race">
+                    <option value="white">Caucasian</option>
+                    <option value="black">African American/Black</option>
+                    <option value="asian">Asian or Pacific Islander</option>
+                    <option value="hispanic">Hispanic or LatinX</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <div>
+                <select form="mainForm" class="bg-secondary-bg-color border-2 border-blue-accent-emphasis text-blue-accent-muted w-full focus:ring-2 focus:ring-blue-accent-emphasis" required name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div> 
+
+            <div id="interests">
+                <p class="inline text-blue-accent-emphasis font-semibold">Add your interests: </p>
+                <br>
+                <button onclick="newTag(this)" class="align-bottom inline rounded-[1rem] bg-blue-accent-subtle text-blue-accent-emphasis p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" x="0px" y="0px" viewBox="0 0 60.364 60.364" style="enable-background:new 0 0 60.364 60.364;" fill="currentColor">
+                        <g>
+                            <path d="M54.454,23.18l-18.609-0.002L35.844,5.91C35.845,2.646,33.198,0,29.934,0c-3.263,0-5.909,2.646-5.909,5.91v17.269   L5.91,23.178C2.646,23.179,0,25.825,0,29.088c0.002,3.264,2.646,5.909,5.91,5.909h18.115v19.457c0,3.267,2.646,5.91,5.91,5.91   c3.264,0,5.909-2.646,5.91-5.908V34.997h18.611c3.262,0,5.908-2.645,5.908-5.907C60.367,25.824,57.718,23.178,54.454,23.18z"/>
+                        </g>
+                    </svg>
+                </button>
+            </div>
+
+            <br>
+
+            <button type="submit" form="mainForm" class="w-full py-4 bg-blue-accent-emphasis rounded text-sm font-bold text-text-primary transition duration-200">Submit</button>
+        </form>
+    </section>
+</body>

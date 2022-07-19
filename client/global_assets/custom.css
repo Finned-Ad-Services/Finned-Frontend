@@ -1,0 +1,71 @@
+:root {
+    font-size: 11px;
+}
+
+.bootstrap-select {
+    width: auto !important;
+}
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+} 
+.goog-logo-link {
+    display:none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+.btn {
+    border: none;
+    outline: none !important;
+    background-color: transparent !important;
+}
+.dropdown-menu .inner, .dropdown-menu.open {
+    background-color: var(--secondary-bg-color);
+}
+.dropdown-menu li a {
+    background-color: var(--secondary-bg-color) !important;
+    border: none;
+    outline: none;
+}
+.dropdown-menu li a:hover {
+    background-color: var(--bg-hover-color) !important;
+}
+
+.dropdown-menu li.selected a {
+    background-color: var(--bg-hover-color) !important;
+}
+
+a[aria-selected="true"] {
+    color: rgb(59 130 246) !important;
+}
+
+a:visited {
+    color: inherit;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+  
+/* Hide scrollbar for IE, Edge and Firefox */
+* {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+div[modal-backdrop] {
+    background: var(--main-bg-color);
+    opacity: 0.7;
+}
+
+button.selectpicker {
+    position: absolute;
+    top: 100%;
+    transform: translateY(25%);
+}
+
+a:hover {
+    color: inherit;
+}

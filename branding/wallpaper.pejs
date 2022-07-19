@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Finned | Wallpaper</title>
+        <link rel="icon" href="/client/default/assets/img/logo.png">
+
+        <link rel="stylesheet" href="/default/assets/stylesheet.css"/>
+    </head>
+    <body>
+        <button class="fixed left-2 top-2 z-10 text-text-primary bg-bg-hover-color rounded-md p-2" onclick="document.querySelector('#branded').requestFullscreen()">Fullscreen</button>
+        <div id="branded" class="fixed flex z-0 items-center justify-center w-full h-full left-0 top-0 bg-secondary-bg-color">
+            <div class="w-[50%] sm:w-[20%]">
+                <img src="/default/assets/img/logo.png" style="width:400px !important;"/>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<%{ './base.pejs' }%>
+
+<%{ head %>
+    <title>Finned | Desktop Client</title>
+    <meta name="description" content="Download Finned Desktop Client to begin collecting analytics from your target audience." />
+    <meta property="og:description" content="Download Finned Desktop Client to begin collecting analytics from your target audience." />
+    
+    <script>
+        window.onload = () => { document.querySelector('#download').click(); }
+    </script>
+<%} %>
+
+<%{ content %>
+    <div class="flex flex-nowrap flex-col justify-center items-center text-xl text-text-primary m-10">
+        <svg class="text-blue-accent-muted" xmlns="http://www.w3.org/2000/svg" width="200px" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" fill="currentColor">
+            <g>
+                <path d="M165,0C74.019,0,0,74.019,0,165s74.019,165,165,165s165-74.019,165-165S255.981,0,165,0z M165,300   c-74.44,0-135-60.561-135-135S90.56,30,165,30s135,60.561,135,135S239.439,300,165,300z"/>
+                <path d="M226.872,106.664l-84.854,84.853l-38.89-38.891c-5.857-5.857-15.355-5.858-21.213-0.001   c-5.858,5.858-5.858,15.355,0,21.213l49.496,49.498c2.813,2.813,6.628,4.394,10.606,4.394c0.001,0,0,0,0.001,0   c3.978,0,7.793-1.581,10.606-4.393l95.461-95.459c5.858-5.858,5.858-15.355,0-21.213   C242.227,100.807,232.73,100.806,226.872,106.664z"/>
+            </g>
+        </svg>
+
+        <h1 class="text-3xl font-bold mt-2">Thank You!</h1>
+        <p class="text-xl font-semibold mx-20 text-center">
+            <br>
+            Thanks for downloading Finned Desktop Client! If your download has not started automatically, please click <a id="download" href="<%= link %>" class="underline text-blue-accent-emphasis" download>here</a>.
+            
+            <br><br>
+
+            Once your download has completed, simply unzip the folder and run the "Finned.exe" file. Fill out all the fields in the window that pops-up, and then enter the "Client Secret" that the popup displays
+            into the <a class="underline text-blue-accent-emphasis" href="https://finned.tech/user/dashboard">Web Dashboard</a>; Your dashbord will start handling ads immediately!
+        </p>
+    </div>
+<%} %>
